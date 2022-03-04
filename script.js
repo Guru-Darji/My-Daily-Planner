@@ -1,4 +1,4 @@
-$(document).start(function () {
+$(document).ready(function () {
 
     
     $("#currentDay").text(moment().format("LLL")); 
@@ -27,6 +27,34 @@ $(document).start(function () {
     $("#20 .description").val(localStorage.getItem("20"));
     $("#21 .description").val(localStorage.getItem("21"));
 
+    function trackingHour(){
+    var currentHour = moment().hour(); 
+
+        
+        $(".time-block").each(function () {
+            var hourBlock = parseInt($(this).attr("id")); //prior knowleadge on pasreInt
+            console.log( hourBlock, currentHour)
+
+            
+            if (hourBlock < currentHour) {
+                $(this).addClass("past");
+                $(this).removeClass("future");
+                $(this).removeClass("present");
+            }
+            else if (hourBlock === currentHour) {
+                $(this).removeClass("past");
+                $(this).addClass("present");
+                $(this).removeClass("future");
+            }
+            else {
+                $(this).removeClass("present");-
+                $(this).removeClass("past");
+                $(this).addClass("future");
+            }
+        })
+    }
+    trackingHour(); 
+})
 
 
 
@@ -62,51 +90,3 @@ $(document).start(function () {
 
 
 
-//var today = moment();
-
-// var current = moment().add(1, "hours").hour();
-
-// $("#currentDay").text(moment().format("LLL"));
-
-// $(".time-block").each(function(){
-//     var hour = $(this).data("hour");
-//     var addMessage = localStorage.getItem(hour);
-//     $(this).find(".description").text(addMessage);
-//     $(this).addClass(hour > current ? 'future' : hour < current ? 'past' : 'present');
-// });
-
-// $(".time-block").on("click", "saveButton", function(){
-//     var result = $(this).parent().find(".description").val();
-//     localStorage.setItem($(this).parent().data("hour"),result);
-// });
-
-// var textArea = document.querySelector(".description")
-// var saveButton = document.querySelector(".saveButton")
-
-
-// saveButton.addEventListener("click",function(event){
-//             event.preventDefault()
-//             localStorage.setItem("inputValue", JSON.stringify(textArea.value));
-//         })
-
-// var curr = moment().add(1, "hours").hour();
-// moment().format("MMM Do YY");
-// var currentDay = document.getElementById("currentDay");
-// var currentTime = moment().format("LLL");
-// currentDay.textContent += currentTime;
-// $("currentDay").text(moment().format("LLL"));
-// $(".row").each(function(){
-//     var hour = $(this).data("hour");
-//     var message = localStorage.getItem(hour);
-//     $(this).find(".description").text(message)
-//     $(this).addClass(hour > current ? 'future' : hour < current ? 'past' : 'present');
-// })
-// $(".row").on("click", "saveButton", function(){
-//     var result = $(this).parent().find(".description").val();
-//     localStorage.setItem($(this).parent().data("hour"),result);
-
-//     saveButton.addEventListener("click",function(event){
-//         event.preventDefault()
-//         localStorage.setItem("inputValue", JSON.stringify(textArea.value));
-//     })
-// })
