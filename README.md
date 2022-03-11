@@ -11,7 +11,7 @@ The user is able to plan out their day and see what is on the schedule past, pre
 - Fullscreen mode
 
 ## Link to Live
-https://guru-darji.github.io/My-Quiz/
+https://guru-darji.github.io/My-Daily-Planner/
 ## Screenshots
 
 ![Screenshot (34)](https://user-images.githubusercontent.com/98906068/156678922-735c69bc-9c16-4949-b9c9-0ab98608f14e.png)
